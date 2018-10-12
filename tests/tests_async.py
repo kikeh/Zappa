@@ -114,7 +114,7 @@ class TestZappa(unittest.TestCase):
                 'SequenceNumber': '1'
             }
         )
-        with mock.patch('zappa.async.SQS_CLIENT', sqs_client_mock):
+        with mock.patch('zappa.async.SQS_CLIENT', sqs_client_mock, create=True):
             # First check that it still runs synchronously by default
             self.assertEqual(async_sqs_me("123"),
                              "run async with sqs service when on lambda 123")
